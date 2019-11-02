@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_nav_menu"
+    >
+
+    <item
+        android:id="@+id/google"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="google" />
+
+    <item
+        android:id="@+id/naver"
+        android:icon="@drawable/ic_near_me_black_24dp"
+        android:title="naver" />
+
+    <item
+        android:id="@+id/daum"
+        android:icon="@drawable/ic_settings_system_daydream_black_24dp"
+        android:title="daum" />
+
+</menu>
