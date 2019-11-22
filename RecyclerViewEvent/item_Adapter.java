@@ -1,6 +1,8 @@
 public class item_Adapter extends RecyclerView.Adapter<item_Adapter.itemViewHolder> {
+    //Adapter에 들어갈 list 내용
     private ArrayList<item_list> item_Data = new ArrayList<>();
-    private Context context;
+    // Toast 이벤트를 위해 Context를 전역변수로 생성했다.
+    private Context context;  //
 
 
     public class itemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -8,7 +10,7 @@ public class item_Adapter extends RecyclerView.Adapter<item_Adapter.itemViewHold
         private TextView itemname;
         private TextView price;
         private Button trybtn;
-
+        private item_list itemList;
 
         public itemViewHolder(View view) {
             super(view);
@@ -19,16 +21,17 @@ public class item_Adapter extends RecyclerView.Adapter<item_Adapter.itemViewHold
         }
 
         void onBind(item_list Item_List) {
-            itemview.setImageResource(Item_List.getid());
-            itemname.setText(Item_List.getItemname());
-            price.setText(Item_List.getPrice());
-            trybtn.setOnClickListener(this);
-        }
+            this.itemList = Item_List; // 항목별로 구분지어서 이벤트를 만들기위해 생성
+                itemview.setImageResource(Item_List.getid());
+                itemname.setText(Item_List.getItemname());
+                trybtn.setOnClickListener(this);
+            }
+
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.trybtn :
-                    Toast.makeText(context, "상품을 고르셨습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,  itemList.getItemname() + "을 고르셨습니다.", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -57,3 +60,4 @@ public class item_Adapter extends RecyclerView.Adapter<item_Adapter.itemViewHold
     }
 
 }
+
